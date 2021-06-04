@@ -1,9 +1,11 @@
+require("dotenv/config");
 const express = require("express");
 const path = require("path");
 const exphand = require("express-handlebars");
 const bodyparser = require("body-parser");
+const mongoose = require("mongoose");
 const homeController = require("./controller/home");
-require("dotenv/config");
+const userController = require("./controller/user");
 
 var app = express();
 app.use(
@@ -28,4 +30,20 @@ app.listen(process.env.PORT, () => {
   console.log("Express server started at port: " + process.env.PORT);
 });
 
+mongoose.connect(
+  process.env.MONGODB_URI,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  },
+  (err) => {
+    if (!err) {
+      console.log("Database connected");
+    } else console.log(err);
+  }
+);
+
 app.use("/", homeController);
+app.use("/user", userController);
