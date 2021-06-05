@@ -1,0 +1,55 @@
+<div class="container text-center">
+  <h1>Song upload</h1>
+  <form action="/song/upload/{{user.id}}" method="POST">
+    <input type="hidden" name="_id" value="{{song._id}}" />
+
+    <label>Song Title</label>
+    <input
+      type="text"
+      name="title"
+      value="{{song.title}}"
+      placeholder="Title"
+    />
+    <div class="form-group" style="color: red;">
+      {{titleError}}
+    </div>
+
+    <label>Song Duration</label>
+    <input
+      type="text"
+      name="duration"
+      value="{{song.duration}}"
+      placeholder="Duration"
+    />
+
+    <label>Language : </label>
+    <input type="radio" id="English" name="language" value="English" />
+    <label for="English">English</label>
+    <input type="radio" id="Hindi" name="language" value="Hindi" />
+    <label for="Hindi">Hindi</label><br /><br />
+
+    <label>Genre : </label><br />
+    <input type="radio" id="Rock" name="genre" value="Rock" />
+    <label for="Rock">Rock</label>
+    <input type="radio" id="Pop music" name="genre" value="Pop music" />
+    <label for="Pop music">Pop music</label>
+    <input type="radio" id="Classical" name="genre" value="Classical" />
+    <label for="Classical">Classical</label>
+    <input type="radio" id="Hip-Hop" name="genre" value="Hip-Hop" />
+    <label for="Hip-Hop">Hip-Hop</label>
+    <input type="radio" id="Popular" name="genre" value="Popular" />
+    <label for="Popular">Popular</label>
+    <input type="radio" id="Folk" name="genre" value="Folk" />
+    <label for="Folk">Folk</label>
+    <input type="radio" id="Blues" name="genre" value="Blues" />
+    <label for="Blues">Blues</label>
+    <input type="radio" id="Jazz" name="genre" value="Jazz" />
+    <label for="Jazz">Jazz</label><br /><br />
+
+    <button class="btn btn-primary" type="submit">
+      <i class="fa fa-upload"></i>
+      Upload
+    </button>
+
+  </form>
+</div>

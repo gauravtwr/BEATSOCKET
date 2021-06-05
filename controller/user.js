@@ -26,18 +26,31 @@ router.post("/signUp", (req, res) => {
         password: req.body.password,
         confirmPassword: req.body.confirmPassword,
       });
-      user.save((err) => {
-        if (!err) {
-          res.render("dashboard", {
-            viewTitle: req.body.name,
-            title: "Dashboard",
-            name: req.body.name,
-          });
-        } else console.log("error in Signing up -> " + err);
-      });
+      if (req.body.password !== req.body.confirmPassword) {
+        res.render("signUp", {
+          viewTitle: "Signup",
+          title: "Passwords does not match",
+        });
+      } else {
+        user.save((err) => {
+          if (!err) {
+            Song.find((err, songs) => {
+              var role = 0;
+              if (user.role == "Artist") role = 1;
+              res.render("dashboard", {
+                viewTitle: req.body.name,
+                title: "Dashboard",
+                name: req.body.name,
+                role: role,
+                songs: songs,
+              });
+            });
+          } else console.log("error in Signing up -> " + err);
+        });
+      }
     } else {
       console.log("Username taken");
-      res.render("signUp", { title: "Username taken!" });
+      res.render("signUp", { viewTitle: "Signup", title: "Username taken!" });
     }
   });
 });
@@ -78,13 +91,19 @@ router.post("/login", (req, res) => {
           title: "Incorrect Password",
         });
       } else if (req.body.password == obj.password) {
-        Song.find({ _id: { $in: obj.songs } }, (err, records) => {
+        Song.find({ _id: { $in: obj.uploads } }, (err, records) => {
           if (!err) {
-            res.render("dashboard", {
-              viewTitle: obj.name,
-              title: obj.name,
-              user: obj,
-              songs: records,
+            Song.find((err, songs) => {
+              var role = 0;
+              if (obj.role == "Artist") role = 1;
+              res.render("dashboard", {
+                viewTitle: obj.name,
+                title: "Dashboard",
+                user: obj,
+                uploads: records,
+                songs: songs,
+                role: role,
+              });
             });
           }
         });

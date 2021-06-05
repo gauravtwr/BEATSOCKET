@@ -2,7 +2,11 @@ const mongoose = require("mongoose");
 const Song = require("./song");
 
 var userSchema = new mongoose.Schema({
-  role: ["artist", "user"],
+  role: {
+    type: String,
+    enum: ["Artist", "User"],
+    default: "User",
+  },
   name: {
     type: String,
     uppercase: true,

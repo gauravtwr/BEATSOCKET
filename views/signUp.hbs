@@ -1,6 +1,9 @@
 <div class="container text-center" style="padding: 2%;">
   <h1>Signup</h1>
   <form id="sign-up-form" action="/user/signUp" method="POST">
+    <div style="color: red; font-weight:bold;">
+      {{title}}
+    </div>
     <input type="hidden" name="_id" value="{{user._id}}" />
     <div>
       <input type="radio" id="Artist" name="role" value="Artist" />

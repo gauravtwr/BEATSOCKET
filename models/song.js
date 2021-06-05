@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const User = require("./user");
 
 var songSchema = new mongoose.Schema({
   title: {
@@ -13,11 +14,22 @@ var songSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  media: {
-    data: Buffer,
-    contentType: String,
+  artist: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: User,
   },
+  views: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: User,
+    },
+  ],
+  likes: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: User,
+    },
+  ],
 });
 
-const Song = mongoose.model("Song", songSchema);
-module.exports = Song;
+module.exports = mongoose.model("Song", songSchema);

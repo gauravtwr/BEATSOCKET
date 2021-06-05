@@ -6,6 +6,7 @@ const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const homeController = require("./controller/home");
 const userController = require("./controller/user");
+const songController = require("./controller/song");
 
 var app = express();
 app.use(
@@ -47,3 +48,4 @@ mongoose.connect(
 
 app.use("/", homeController);
 app.use("/user", userController);
+app.use("/song", songController);
