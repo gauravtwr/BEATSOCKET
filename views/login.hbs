@@ -1,0 +1,25 @@
+<div class="container text-center">
+  <h1>Login</h1>
+  <form action="/user/login" method="POST" id="sign-in-form">
+    <div style="color: red; font-weight:bold;">
+      {{title}}
+    </div>
+    <div>
+      <input
+        type="text"
+        name="userid"
+        placeholder="User Id"
+        value="{{user.userid}}"
+      />
+      <div class="form-group">
+        {{uid}}
+      </div>
+      <input type="password" name="password" placeholder="Password" />
+      <div class="form-group">
+        {{ups}}
+      </div>
+    </div>
+    <p class="forgot-password">Forgot your password?</p>
+    <button type="submit" class="btn btn-primary">Sign In</button>
+  </form>
+</div>

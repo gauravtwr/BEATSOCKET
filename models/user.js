@@ -6,28 +6,28 @@ var userSchema = new mongoose.Schema({
   name: {
     type: String,
     uppercase: true,
-    required: true,
+    required: "Required field",
   },
   phone: {
     type: Number,
-    minlength: 10,
+    min: [10, "Enter valid number"],
   },
   userid: {
     type: String,
     lowercase: true,
-    required: true,
+    required: "Required field",
   },
   email: {
     type: String,
-    required: true,
+    required: "Required field",
   },
   password: {
     type: String,
-    required: true,
+    required: "Required field",
   },
   confirmPassword: {
     type: String,
-    required: true,
+    required: "Required field",
   },
   songs: [
     {
