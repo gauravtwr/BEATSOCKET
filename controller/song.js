@@ -150,7 +150,8 @@ router.get("/play/:uid/:sid", (req, res) => {
           if (user) {
             Song.findById(req.params.sid, (err, song) => {
               res.render("playSong", {
-                viewTitle: "Play song",
+                viewTitle: user.name,
+                title: "Play Song",
                 song: song,
                 user: user,
               });
@@ -162,7 +163,8 @@ router.get("/play/:uid/:sid", (req, res) => {
       User.findById(req.params.uid, (err, user) => {
         Song.findById(req.params.sid, (err, song) => {
           res.render("playSong", {
-            viewTitle: "Play song",
+            viewTitle: user.name,
+            title: "Play Song",
             song: song,
             user: user,
           });
