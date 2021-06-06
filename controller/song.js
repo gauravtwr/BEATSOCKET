@@ -88,4 +88,88 @@ router.get("/delete/:uid/:sid", (req, res) => {
   });
 });
 
+router.get("/like/:uid/:sid", (req, res) => {
+  Song.findOne({ _id: req.params.sid, likes: req.params.uid }, (err, doc) => {
+    if (!doc) {
+      Song.findByIdAndUpdate(
+        req.params.sid,
+        { $push: { likes: req.params.uid } },
+        (err, song) => {
+          Song.find((err, songs) => {
+            User.findById(req.params.uid, (err, user) => {
+              Song.find({ _id: { $in: user.uploads } }, (err, records) => {
+                var role = 0;
+                if (user.role == "Artist") role = 1;
+                res.render("dashboard", {
+                  viewTitle: user.name,
+                  title: "Dashboard",
+                  user: user,
+                  role: role,
+                  songs: songs,
+                  uploads: records,
+                });
+              });
+            });
+          });
+        }
+      );
+    } else {
+      Song.findByIdAndUpdate(
+        req.params.sid,
+        { $pull: { likes: req.params.uid } },
+        (err, song) => {
+          Song.find((err, songs) => {
+            User.findById(req.params.uid, (err, user) => {
+              Song.find({ _id: { $in: user.uploads } }, (err, records) => {
+                var role = 0;
+                if (user.role == "Artist") role = 1;
+                res.render("dashboard", {
+                  viewTitle: user.name,
+                  title: "Dashboard",
+                  user: user,
+                  role: role,
+                  songs: songs,
+                  uploads: records,
+                });
+              });
+            });
+          });
+        }
+      );
+    }
+  });
+});
+
+router.get("/play/:uid/:sid", (req, res) => {
+  User.findOne({ _id: req.params.uid, history: req.params.sid }, (err, doc) => {
+    if (!doc) {
+      User.findByIdAndUpdate(
+        req.params.uid,
+        { $push: { history: req.params.sid } },
+        (err, user) => {
+          if (user) {
+            Song.findById(req.params.sid, (err, song) => {
+              res.render("playSong", {
+                viewTitle: "Play song",
+                song: song,
+                user: user,
+              });
+            });
+          } else console.log(err);
+        }
+      );
+    } else {
+      User.findById(req.params.uid, (err, user) => {
+        Song.findById(req.params.sid, (err, song) => {
+          res.render("playSong", {
+            viewTitle: "Play song",
+            song: song,
+            user: user,
+          });
+        });
+      });
+    }
+  });
+});
+
 module.exports = router;

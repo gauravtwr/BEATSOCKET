@@ -15,9 +15,8 @@
           Song upload
         </button>
       </a>
-    <div class="container text-center" style="padding: 1%;">
+    <div class="container text-center">
         <h3>Your uploads</h3>
-        
         <table class="table">
           <thead>
             <tr>
@@ -45,7 +44,7 @@
       
     </div>
     {{/if}}
-    <div class="container">
+    <div class="container text-center">
         <h3>Our songs</h3>
         <table class="table">
           <thead>
@@ -54,6 +53,8 @@
                 <th>Duration</th>
                 <th>Genre</th>
                 <th>Language</th>
+                <th></th>
+                <th></th>
                 <th></th>
             </tr>
           </thead>
@@ -64,7 +65,13 @@
                 <td>{{this.duration}}</td>
                 <td>{{this.genre}}</td>
                 <td>{{this.language}}</td>
-                <td><i class="fa fa-play-circle fa-2x"></i></td>
+                <td><a href="/song/play/{{../user.id}}/{{this.id}}"><i class="fa fa-play-circle fa-2x"></i></a> </td>
+                <td><a href="/song/like/{{../user.id}}/{{this.id}}"><i class="fa fa-thumbs-up fa-2x"></i></a> </td>
+                {{#if ../playlist}}
+                <td><a href="/user/playlist/{{../user.id}}/{{this.id}}"><i class="fa fa-plus"></i> playlist</a> </td>
+                {{else}}
+                <td><a style="color: red;" href="/user/playlist/{{../user.id}}/{{this.id}}"><i class="fa fa-times"></i> playlist</a> </td>
+                {{/if}}
             </tr>
         {{/each}}
           </tbody>

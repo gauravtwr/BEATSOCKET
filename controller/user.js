@@ -112,4 +112,57 @@ router.post("/login", (req, res) => {
   });
 });
 
+router.get("/playlist/:uid/:sid", (req, res) => {
+  User.findOne(
+    { _id: req.params.uid, playlist: req.params.sid },
+    (err, doc) => {
+      if (!doc) {
+        User.findByIdAndUpdate(
+          req.params.uid,
+          { $push: { playlist: req.params.sid } },
+          (err, user) => {
+            Song.find((err, songs) => {
+              Song.find({ _id: { $in: user.uploads } }, (err, records) => {
+                var role = 0;
+                if (user.role == "Artist") role = 1;
+                res.render("dashboard", {
+                  viewTitle: user.name,
+                  title: "Dashboard",
+                  user: user,
+                  role: role,
+                  songs: songs,
+                  uploads: records,
+                  playlist: 0,
+                });
+              });
+            });
+          }
+        );
+      } else {
+        User.findByIdAndUpdate(
+          req.params.uid,
+          { $pull: { playlist: req.params.sid } },
+          (err, user) => {
+            Song.find((err, songs) => {
+              Song.find({ _id: { $in: user.uploads } }, (err, records) => {
+                var role = 0;
+                if (user.role == "Artist") role = 1;
+                res.render("dashboard", {
+                  viewTitle: user.name,
+                  title: "Dashboard",
+                  user: user,
+                  role: role,
+                  songs: songs,
+                  uploads: records,
+                  playlist: 1,
+                });
+              });
+            });
+          }
+        );
+      }
+    }
+  );
+});
+
 module.exports = router;
