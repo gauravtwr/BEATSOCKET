@@ -24,7 +24,6 @@ router.post("/signUp", (req, res) => {
         userid: req.body.userid,
         email: req.body.email,
         password: req.body.password,
-        confirmPassword: req.body.confirmPassword,
       });
       if (req.body.password !== req.body.confirmPassword) {
         res.render("signUp", {
@@ -43,6 +42,7 @@ router.post("/signUp", (req, res) => {
                 name: req.body.name,
                 role: role,
                 songs: songs,
+                user: user,
               });
             });
           } else console.log("error in Signing up -> " + err);

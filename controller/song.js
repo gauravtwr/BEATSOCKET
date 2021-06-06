@@ -1,6 +1,11 @@
 var router = require("express").Router();
 const Song = require("../models/song");
 const User = require("../models/user");
+const fs = require("fs");
+const multer = require("multer");
+const path = require("path");
+
+const upload = multer({ dest: "D:/BEATSOCKET/public/audio" });
 
 router.get("/upload/:uid", (req, res) => {
   User.findById(req.params.uid, (err, user) => {
@@ -13,7 +18,7 @@ router.get("/upload/:uid", (req, res) => {
   });
 });
 
-router.post("/upload/:uid", (req, res) => {
+router.post("/upload/:uid", upload.single("file"), (req, res) => {
   User.findById(req.params.uid, (err, user) => {
     if (!err) {
       if (req.body.title == null) {
@@ -23,37 +28,54 @@ router.post("/upload/:uid", (req, res) => {
           titleError: "Enter title",
         });
       }
-      var song = new Song({
-        title: req.body.title,
-        duration: req.body.duration,
-        language: req.body.language,
-        genre: req.body.genre,
-        artist: req.params.uid,
-      });
-      song.save((err) => {
-        if (!err) {
-        } else console.log(err);
-      });
-      user.update(user.uploads.push(song._id));
-      User.findByIdAndUpdate(req.params.uid, user, (err) => {
-        if (err) console.log("user not updated with new song");
-        else {
-          Song.find({ _id: { $in: user.uploads } }, (err, records) => {
-            Song.find((err, songs) => {
-              var role = 0;
-              if (user.role == "Artist") role = 1;
-              res.render("dashboard", {
-                viewTitle: user.name,
-                title: user.name,
-                user: user,
-                uploads: records,
-                songs: songs,
-                role: role,
-              });
+      const tempPath = req.file.path;
+      const targetPath = path.join("D:/BEATSOCKET/public/audio/song.mp3");
+      if (path.extname(req.file.originalname).toLowerCase() == ".mp3") {
+        fs.rename(tempPath, targetPath, (err) => {
+          if (!err) {
+            var song = new Song({
+              title: req.body.title,
+              duration: req.body.duration,
+              language: req.body.language,
+              genre: req.body.genre,
+              artist: req.params.uid,
             });
-          });
-        }
-      });
+            song.media.data = fs.readFileSync(
+              "D:/BEATSOCKET/public/audio/song.mp3"
+            );
+            song.media.contentType = "audio/mpeg";
+            song.save((err) => {
+              if (!err) {
+              } else console.log(err);
+            });
+            user.update(user.uploads.push(song._id));
+            User.findByIdAndUpdate(req.params.uid, user, (err) => {
+              if (err) console.log("user not updated with new song");
+              else {
+                Song.find({ _id: { $in: user.uploads } }, (err, records) => {
+                  Song.find((err, songs) => {
+                    var role = 0;
+                    if (user.role == "Artist") role = 1;
+                    res.render("dashboard", {
+                      viewTitle: user.name,
+                      title: user.name,
+                      user: user,
+                      uploads: records,
+                      songs: songs,
+                      role: role,
+                    });
+                  });
+                });
+              }
+            });
+          } else console.log(err);
+        });
+      } else {
+        fs.unlink(tempPath, (err) => {
+          if (!err) console.log("Only mp3 files are allowed");
+          else console.log(err);
+        });
+      }
     } else console.log(err);
   });
 });

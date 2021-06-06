@@ -9,7 +9,11 @@ var songSchema = new mongoose.Schema({
   duration: {
     type: String,
   },
-  language: ["English", "Hindi"],
+  language: {
+    type: String,
+    enum: ["English", "Hindi"],
+    default: "Hindi",
+  },
   genre: {
     type: String,
     required: true,
@@ -30,6 +34,10 @@ var songSchema = new mongoose.Schema({
       ref: User,
     },
   ],
+  media: {
+    data: Buffer,
+    contentType: String,
+  },
 });
 
 module.exports = mongoose.model("Song", songSchema);

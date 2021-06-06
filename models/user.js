@@ -29,16 +29,6 @@ var userSchema = new mongoose.Schema({
     type: String,
     required: "Required field",
   },
-  confirmPassword: {
-    type: String,
-    required: "Required field",
-  },
-  songs: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: Song,
-    },
-  ],
   history: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -55,18 +45,6 @@ var userSchema = new mongoose.Schema({
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: Song,
-    },
-  ],
-  views: [
-    {
-      song: mongoose.Schema.Types.ObjectId,
-      count: Number,
-    },
-  ],
-  likes: [
-    {
-      song: mongoose.Schema.Types.ObjectId,
-      count: Number,
     },
   ],
 });
