@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <title>Document</title>
+    <style>
+
+            *{
+             box-sizing: border-box;
+         }
+         body{
+              margin: 0;
+              background-color: #303234;
+         }
+         .container{
+               display: flex;
+               justify-content: space-between;
+         }
+         ul
+            {
+	            list-style-type: none;
+	            
+	    }
+        ul li{
+              display: inline-block;
+              
+        }
+        ul li a{
+             text-decoration: none;
+             color: #de3ff1;
+             
+             padding: 1.3rem;   
+             text-shadow: 2px 8px 6px rgba(0,0,0,0.2),
+                 0px -5px 35px rgba(255, 255, 255, 0.3);   
+        }
+        .first{
+            padding-left: 2rem;
+        }
+        .first h1{
+             font-family: Arial, Helvetica, sans-serif;
+             font-weight: bolder;
+             color: rgba(222, 63, 241, 1);
+           
+             
+        }
+        .second{
+             padding-right: 9rem;
+             padding-top: 1rem;
+             
+        }
+       .second ul li a:hover{
+               color: aliceblue;
+       }
+        .content{
+             display: flex;
+             padding-top: 3rem;
+             justify-content: space-evenly;
+             padding-bottom: 7rem;
+            
+        }
+       
+        .third h1{
+                  font-family: Arial, Helvetica, sans-serif;
+                  font-size: 3rem;
+                  font-weight: bold;
+                  color: aliceblue;
+        }
+        .third p{
+                font-family: Arial, Helvetica, sans-serif;
+                 font-size: small;
+                 color: #969599;
+                 padding-bottom: 1rem;
+            }
+        .btns{
+              border: 0.1px solid #de3ff1;
+            background-image: linear-gradient(#DE3FF1, #B70CFC);
+             border-radius: 2rem;
+            width: 12.5rem;
+            height: 3.5rem;
+            box-shadow: 13px 11px 7px -4px rgba(29,24,24,0.44);
+            
+        }
+        
+       
+        .fourth img{
+               height: 23rem;
+               width: 37rem;
+               padding-left: 2rem;
+        }
+        .btns:hover{
+              
+              color: wheat;
+         
+                
+        }
+        .detail{
+             
+            height: 10rem;
+            box-shadow:  6px 6px 12px #212324,
+                         -6px -6px 12px #3f4244;
+            
+        }
+        .detail h1{
+               font-size: 1rem;
+               text-align: center;
+               font-family:Arial, Helvetica, sans-serif;
+               font-weight: bolder;
+               color: #0387bb;
+                letter-spacing: 5px;
+                padding-top: 2rem;
+        }
+        .detail pre{
+               text-align: center;
+               color: #969599;
+               font-family: Arial, Helvetica, sans-serif;
+               font-size: 14px;
+               line-height: 1.3rem;
+               letter-spacing: 0.5px;
+        }
+        .offer{
+             text-align: center;
+             padding-top: 3.2rem;
+             font-size: 2rem;
+             font-weight: bolder;
+             font-family: Arial, Helvetica, sans-serif;
+             color: aliceblue;
+             padding-bottom: 4rem;
+        }
+        .circlegrp{
+                 display: flex;
+                 padding-bottom: 1rem;
+                 height: 12rem;
+                 justify-content: space-evenly;
+                 
+               
+        }
+        .circle-first,
+        .circle-second,
+        .circle-third,
+        .circle-fourth{
+                
+                 width: 12rem;
+                 text-align: center;
+                 font-family: Arial, Helvetica, sans-serif;
+                 line-height: 1.5rem;
+                 align-items: center;
+                 padding-top: 3.8rem;
+                 border-radius: 50%;
+                 color: rgba(222, 63, 241, 1);
+                 letter-spacing: 2px;
+                 box-shadow:  6px 6px 9px #232526,
+                            -6px -6px 9px #3d4042;
+        }
+        .more{
+             text-align: center;
+             font-family: Arial, Helvetica, sans-serif;
+             color: #969599;
+             padding-bottom: 2rem;
+
+        }
+        .firstimg{
+                display: flex;
+                justify-content: space-evenly;
+        }
+        
+        .sixth img{
+              
+               width: 30rem;         
+        }
+        .seventh{
+             
+              font-family: Arial, Helvetica, sans-serif;
+                 font-weight: bold;
+                 padding-top: 4.5rem;
+                 
+        }
+        .seventh span{
+               
+               font-size: 3rem;
+               color: rgb(216, 120, 10);
+        }
+        .seventh p{
+                 
+                 color: aliceblue;
+                 font-size: 2rem;
+                 letter-spacing: 3px;
+                 line-height: 3.5rem;
+        }
+        .secondimg{
+                display: flex;
+                padding-bottom: 3rem;
+                justify-content: space-evenly;
+        }
+        .eight{
+             
+             font-family: Arial, Helvetica, sans-serif;
+             font-weight: bold;
+                
+                
+       }
+       .eight p{
+             font-size: 2rem;
+             color: aliceblue;
+             letter-spacing: 3px;
+             line-height: 3.5rem;
+       }
+       .eight span{
+              font-size: 3rem;
+              color: #3964DB;
+       }
+        .startbtn{
+             border: 1px solid #de3ff1;
+             color: #de3ff1;
+             background-color: #303234;
+             border-radius: 2rem;
+            width: 12.5rem;
+            height: 3.5rem;
+        } 
+        .nineth img{
+               width: 30rem;      
+               
+        }
+        .startbtn:hover{
+              background-image: linear-gradient(#DE3FF1, #B70CFC);
+              color: #303234;
+              box-shadow: 13px 11px 7px -4px rgba(29,24,24,0.44);
+        }
+        .lastdiv{
+              padding-bottom: 3.5rem;;
+              display: flex;
+              justify-content: space-evenly;
+        }
+        .firstlast,
+        .secondlast{
+              
+              width: 40%;
+              font-family: Arial, Helvetica, sans-serif;
+              padding: 1.5rem;
+              border-radius: 25px;
+              box-shadow:  6px 6px 12px #252728,
+                         -6px -6px 12px #3b3e40;
+        }
+        .firstlast h1,
+        .secondlast h1{
+                font-weight: bolder;
+                color: #0387bb;
+                font-size: 1rem;
+                letter-spacing: 5px;
+        }
+        .firstlast p,
+        .secondlast p{
+              color: #969599;
+              font-size: 14px;
+               line-height: 1.3rem;
+               letter-spacing: 0.5px;
+        }
+        .footer{
+              background-image: linear-gradient(#DE3FF1, #B70CFC);
+               display: flex;
+               justify-content: space-evenly;
+               height: 18rem;
+        }
+        .first-footer,
+        .second-footer,
+        .third-footer,
+        .fourth-footer{
+               
+               width: 10rem;
+               color: white;
+        }
+        .first-footer p,
+        .second-footer p,
+        .third-footer p,
+        .fourth-footer p{
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 10px;
+                text-align: center;
+                padding-top: 2rem;;
+               
+        }
+        .first-footer ul ,
+        .second-footer ul,
+        .third-footer ul,
+        .fourth-footer ul{
+
+               list-style-type: none;
+               padding-left: 1.5rem;
+
+        }
+        .first-footer ul li a,
+        .second-footer ul li a,
+        .third-footer ul li a,
+        .fourth-footer ul li a{
+                
+                 text-decoration: none;
+                 color: white;
+                 font-family: Arial, Helvetica, sans-serif;
+                 font-size: 8px;
+                 letter-spacing: 1px;
+                 
+        }
+    </style>
+  </head>
+  <body>
+        
+          <div class="container">
+                 <div class="first"><h1>BEATSOCKET</h1></div>
+
+                  <div class="second">
+                         <ul>
+                             <li><a href="#">Info</a></li>
+                             <li><a href="#">Support</a></li>
+                             <li><a href="#">Log In</a></li>
+                             <li><a href="#">Get Started</a></li>
+
+                         </ul>
+
+                  </div>
+          </div>
+          <div class="content">
+                 <div class="third">
+                        <h1>DECENTRALIZED <br>MUSIC PUBLICATION.</h1>
+                        <p>Making the music world free of cost and easily accessible to anyone without any<br> 
+                            monpoly of big organisation
+                        </p>
+                         <button class=" btns">Start New Experience </button>
+                 </div>
+
+                 <div class="fourth">
+                        <img src="Group 430.png">
+                 </div>
+          </div>
+
+          <div class="detail">
+                 <h1>WHAT IT ACTUALLY IS ?</h1>
+                 <pre>The idea is to provide online paltform to the end-user and struggling artist to share and use decentralized peer to peer connection for sharing and listening to 
+    music.which is providing them a cross inter connection between the diffrent organisations,individuals on the behalf of organisation for making the music
+     world freeof cost and easily accessible to anyone without any monopoly of big organisation
+                </pre> 
+          </div>
+
+          <div class="offer">
+               We Offer
+          </div>
+
+          <div class="circlegrp">
+                 <div class="circle-first">Crypto<br>Rewards</div>
+                 
+                 <div class="circle-second">Advertisment<br> Free Music</div>
+                 <div class="circle-third">Unlimited <br>High Quality<br> streaming</div>
+                 <div class="circle-fourth">Unlimited <br>Skips</div>
+                 
+          </div>
+        
+          <div class="more"><p>And Much More...</p></div>
+          <div class="firstimg">
+                 <div class="sixth">
+                      <img src="Saly-13.png">
+                 </div>
+
+                 <div class=" seventh">
+                        
+                        <p><span>OK...</span><br>But why should i choose<br>
+                           BeatSocket.<br>
+                           i mean there are plenty of apps<br>
+                           for that already,Aren't then?
+                        </p>
+                 </div>
+          </div>
+
+          <div class="secondimg">
+                <div class="eight">
+                      <p>Yes,There are<br>
+                         But here's the catch!<br>
+                         <span>we don't charge any fee.</span><br>
+                         instead we utilize your sleeping<br>
+                         resource.
+                    </p>
+                    <button class="startbtn">Start New Experience </button>
+                </div>
+                <div class="nineth">
+                      <img src="Saly-10.png">
+                </div>
+          </div>
+
+          <div class="lastdiv">
+                <div class="firstlast">
+                      <h1>HOW WE DO IT</h1>
+                      <p>To provide artist their actual worth and keep our system running we
+                          passive mine cryptocurrency using your rescource and according to 
+                          your prefrence. And distribute them anmong artist love. This way
+                          sleeping resource get utilize and you don't have to pay any extra money 
+                      </p>
+                </div>
+                
+                <div class="secondlast">
+                     <h1>FUCTURE PROJECTION </h1>
+                     <p>We got alot in our basket and if you show us enough love we might be
+                        able to rollour integrated Chrome extension for more accessibility
+                        and the Mobile App so that you can continue your vibe whenever you go.
+
+                     </p>
+                </div>
+          </div>
+
+          <div class="footer">
+                 <div class="first-footer">
+                        <p>WHO WE ARE</p>
+                            <ul>
+                                <li><a href="#">About</a></li>
+                                <li><a href="#">Team</a></li>
+                                <li><a href="#">Work With Us</a></li>
+                                
+                            </ul>
+                 </div>
+                 <div class="second-footer">
+                     <p>BEATSOCKET</p>
+                         <ul>
+                             <li><a href="#">Feature</a></li>
+                             <li><a href="#">Marketing</a></li>
+                             <li><a href="#">Music blog</a></li>
+                             <li><a href="#">Style Guide</a></li>
+                             <li><a href="#">Devlopment blog</a></li>
+                             <li><a href="#">Idea board</a></li>
+                         </ul>
+               </div>
+                <div class="third-footer">
+                     <p>SUPPORT</p>
+                         <ul>
+                             <li><a href="#">Documentation</a></li>
+                             <li><a href="#">Customizations</a></li>
+                             <li><a href="#">Support policy</a></li>
+                             <li><a href="#">Contact</a></li>
+                             <li><a href="#">COVID-19 resource</a></li>
+                             <li><a href="#">Privacy Notice</a></li>
+                         </ul>
+                </div>
+                <div class="fourth-footer">
+                     <p>WE RECOMMEND</p>
+                         <ul>
+                             <li><a href="#">Beatsocket Experts</a></li>
+                             <li><a href="#">Hosting solution</a></li>
+                             <li><a href="#">Pre-sales FAQ</a></li>
+                             <li><a href="#">Success Stories</a></li>
+                             <li><a href="#">Design Feeedback</a></li>
+                             
+                         </ul>
+                </div>
+          </div>
+        
+
+  </body>
+</html>
