@@ -212,16 +212,12 @@ router.get("/play/:uid/:sid", (req, res) => {
 
 router.get("/calcView/:uid/:sid/:time", (req, res) => {
   Song.findById(req.params.sid, (err, song) => {
-    console.log("time:" + req.params.time + "duration: " + song.duration);
     var viewTime = parseInt(song.duration) * 0.3;
     if (req.params.time >= viewTime) {
-      console.log("before : " + song.views);
       song.update(song.views++);
-      console.log("after 1 : " + song.views);
       Song.findByIdAndUpdate(req.params.sid, song, (err) => {
         if (!err) {
           Song.find((err, songs) => {
-            console.log("after 2 : " + song.views);
             User.findById(req.params.uid, (err, user) => {
               Song.find({ _id: { $in: user.uploads } }, (err, records) => {
                 var role = 0;
@@ -243,9 +239,6 @@ router.get("/calcView/:uid/:sid/:time", (req, res) => {
       Song.find((err, songs) => {
         User.findById(req.params.uid, (err, user) => {
           Song.find({ _id: { $in: user.uploads } }, (err, records) => {
-            Song.findById(req.params.sid, (err, song) => {
-              console.log("before : " + song.views);
-            });
             var role = 0;
             if (user.role == "Artist") role = 1;
             res.render("dashboard", {
