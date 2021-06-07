@@ -24,6 +24,7 @@
                 <th>Duration</th>
                 <th>Genre</th>
                 <th>Language</th>
+                <th>Views</th>
                 <th></th>
             </tr>
           </thead>
@@ -34,6 +35,7 @@
                 <td>{{this.duration}}</td>
                 <td>{{this.genre}}</td>
                 <td>{{this.language}}</td>
+                <td>{{this.views}}</td>
                 <td><a href="/song/delete/{{../user.id}}/{{this.id}}"><i class="fa fa-trash fa-2x"></i></a> </td>
             </tr>
             {{/each}}
@@ -51,6 +53,7 @@
                 <th>Duration</th>
                 <th>Genre</th>
                 <th>Language</th>
+                <th>Views</th>
                 <th></th>
                 <th></th>
                 <th></th>
@@ -63,6 +66,7 @@
                 <td>{{this.duration}}</td>
                 <td>{{this.genre}}</td>
                 <td>{{this.language}}</td>
+                <td>{{this.views}}</td>
                 <td><a href="/song/play/{{../user.id}}/{{this.id}}"><i class="fa fa-play-circle fa-2x"></i></a> </td>
                 <td><a href="/song/like/{{../user.id}}/{{this.id}}"><i class="fa fa-thumbs-up fa-2x"></i></a> </td>
                 {{#if ../playlist}}
