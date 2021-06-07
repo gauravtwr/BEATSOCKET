@@ -1,17 +1,36 @@
 <div class="container text-center">
   <h2>{{title}}</h2>
-  <h3>
-    Playing song
+  <h5>
+    Playing :
     {{song.title}}
-  </h3>
+  </h5>
+  <p>by {{artist.name}}</p>
   <div class="row justify-content-center d-flex mt-5">
     <div class="col-4">
       <img src="/img/play.png" width="200" height="200" alt="play image" />
     </div>
     <div class="col-4 my-auto">
-      <audio controls>
+      <audio id="player" controls>
         <source src="/audio/{{song.title}}.mp3" />
       </audio>
+      <button
+        id="myDiv"
+        onclick="calc();"
+        href="/song/calcView/{{user.id}}/{{song.id}}/{{t}}"
+        class="btn btn-danger"
+      >Stop playing</button>
     </div>
   </div>
 </div>
+
+<script>
+  function calc(){ 
+    var player = document.getElementById('player'); 
+    var length = player.played.length; 
+    var start = player.played.start(0); 
+    var end = player.played.end(length-1); 
+    var t =end-start; 
+    var hr = '/song/calcView/{{user.id}}/{{song.id}}/';
+    document.getElementById("myDiv").innerHTML = "<a id=myDiv href="+hr+t+">Go back</a>"; 
+  }
+</script>

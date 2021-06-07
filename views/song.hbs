@@ -25,13 +25,25 @@
 
       <div class="form-group p-2">
         <label>Song Duration</label>
-        <input
-          class="form-control"
-          type="text"
-          name="duration"
-          value="{{song.duration}}"
-          placeholder="Duration"
-        />
+        <div class="row">
+          <div class="col-6">
+            <input
+              class="form-control"
+              type="Number"
+              name="durationm"
+              placeholder="minutes"
+            />
+          </div>
+          <div class="col-6">
+            <input
+              class="form-control"
+              type="Number"
+              name="durations"
+              placeholder="seconds"
+            />
+          </div>
+        </div>
+
       </div>
 
       <div class="form-group p-2">

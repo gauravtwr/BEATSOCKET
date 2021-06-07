@@ -7,7 +7,8 @@ var songSchema = new mongoose.Schema({
     required: true,
   },
   duration: {
-    type: String,
+    type: Number,
+    required: true
   },
   language: {
     type: String,
@@ -22,12 +23,10 @@ var songSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: User,
   },
-  views: [
-    {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: User,
-    },
-  ],
+  views: {
+      type: Number,
+      default: 0
+  },
   likes: [
     {
       type: mongoose.Schema.Types.ObjectId,

@@ -35,9 +35,12 @@ router.post("/upload/:uid", upload.single("file"), (req, res) => {
       if (path.extname(req.file.originalname).toLowerCase() == ".mp3") {
         fs.rename(tempPath, targetPath, (err) => {
           if (!err) {
+            console.log(req.body.durationm + " mins " + req.body.durations);
+            var min = req.body.durationm * 60;
+            var duration = parseInt(min) + parseInt(req.body.durations);
             var song = new Song({
               title: req.body.title,
-              duration: req.body.duration,
+              duration: duration,
               language: req.body.language,
               genre: req.body.genre,
               artist: req.params.uid,
@@ -48,7 +51,6 @@ router.post("/upload/:uid", upload.single("file"), (req, res) => {
             song.media.contentType = "audio/mpeg";
             song.save((err) => {
               if (!err) {
-                console.log("Saved song :" + song);
                 user.update(user.uploads.push({ _id: song._id }));
                 User.findByIdAndUpdate(req.params.uid, user, (err) => {
                   if (err) console.log("user not updated with new song");
@@ -177,11 +179,14 @@ router.get("/play/:uid/:sid", (req, res) => {
         (err, user) => {
           if (user) {
             Song.findById(req.params.sid, (err, song) => {
-              res.render("playSong", {
-                viewTitle: user.name,
-                title: "Play Song",
-                song: song,
-                user: user,
+              User.findById(song.artist, (err, artist) => {
+                res.render("playSong", {
+                  viewTitle: user.name,
+                  title: "Play Song",
+                  song: song,
+                  user: user,
+                  artist: artist,
+                });
               });
             });
           } else console.log(err);
@@ -190,11 +195,60 @@ router.get("/play/:uid/:sid", (req, res) => {
     } else {
       User.findById(req.params.uid, (err, user) => {
         Song.findById(req.params.sid, (err, song) => {
-          res.render("playSong", {
-            viewTitle: user.name,
-            title: "Play Song",
-            song: song,
-            user: user,
+          User.findById(song.artist, (err, artist) => {
+            res.render("playSong", {
+              viewTitle: user.name,
+              title: "Play Song",
+              song: song,
+              user: user,
+              artist: artist,
+            });
+          });
+        });
+      });
+    }
+  });
+});
+
+router.get("/calcView/:uid/:sid/:time", (req, res) => {
+  Song.findById(req.params.sid, (err, song) => {
+    console.log("time:" + req.params.time + "duration: " + song.duration);
+    if (req.params.time >= song.duartion * 0.3) {
+      song.update(song.views++);
+      Song.findByIdAndUpdate(req.params.sid, song, (err) => {
+        if (!err) {
+          Song.find((err, songs) => {
+            User.findById(req.params.uid, (err, user) => {
+              Song.find({ _id: { $in: user.uploads } }, (err, records) => {
+                var role = 0;
+                if (user.role == "Artist") role = 1;
+                res.render("dashboard", {
+                  viewTitle: user.name,
+                  title: "Dashboard",
+                  user: user,
+                  role: role,
+                  songs: songs,
+                  uploads: records,
+                });
+              });
+            });
+          });
+        } else console.log(err);
+      });
+    } else {
+      Song.find((err, songs) => {
+        User.findById(req.params.uid, (err, user) => {
+          Song.find({ _id: { $in: user.uploads } }, (err, records) => {
+            var role = 0;
+            if (user.role == "Artist") role = 1;
+            res.render("dashboard", {
+              viewTitle: user.name,
+              title: "Dashboard",
+              user: user,
+              role: role,
+              songs: songs,
+              uploads: records,
+            });
           });
         });
       });
