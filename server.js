@@ -30,6 +30,9 @@ app.engine(
 );
 app.set("view engine", "hbs");
 
+app.use(express.static("public"));
+app.use("/", express.static(__dirname + "/views"));
+
 app.listen(process.env.PORT, () => {
   console.log("Express server started at port: " + process.env.PORT);
 });

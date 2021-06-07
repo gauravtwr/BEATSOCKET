@@ -29,7 +29,9 @@ router.post("/upload/:uid", upload.single("file"), (req, res) => {
         });
       }
       const tempPath = req.file.path;
-      const targetPath = path.join("D:/BEATSOCKET/public/audio/song.mp3");
+      const targetPath = path.join(
+        `D:/BEATSOCKET/public/audio/${req.body.title}.mp3`
+      );
       if (path.extname(req.file.originalname).toLowerCase() == ".mp3") {
         fs.rename(tempPath, targetPath, (err) => {
           if (!err) {
@@ -41,32 +43,36 @@ router.post("/upload/:uid", upload.single("file"), (req, res) => {
               artist: req.params.uid,
             });
             song.media.data = fs.readFileSync(
-              "D:/BEATSOCKET/public/audio/song.mp3"
+              `D:/BEATSOCKET/public/audio/${req.body.title}.mp3`
             );
             song.media.contentType = "audio/mpeg";
             song.save((err) => {
               if (!err) {
-              } else console.log(err);
-            });
-            user.update(user.uploads.push(song._id));
-            User.findByIdAndUpdate(req.params.uid, user, (err) => {
-              if (err) console.log("user not updated with new song");
-              else {
-                Song.find({ _id: { $in: user.uploads } }, (err, records) => {
-                  Song.find((err, songs) => {
-                    var role = 0;
-                    if (user.role == "Artist") role = 1;
-                    res.render("dashboard", {
-                      viewTitle: user.name,
-                      title: user.name,
-                      user: user,
-                      uploads: records,
-                      songs: songs,
-                      role: role,
-                    });
-                  });
+                console.log("Saved song :" + song);
+                user.update(user.uploads.push({ _id: song._id }));
+                User.findByIdAndUpdate(req.params.uid, user, (err) => {
+                  if (err) console.log("user not updated with new song");
+                  else {
+                    Song.find(
+                      { _id: { $in: user.uploads } },
+                      (err, records) => {
+                        Song.find((err, songs) => {
+                          var role = 0;
+                          if (user.role == "Artist") role = 1;
+                          res.render("dashboard", {
+                            viewTitle: user.name,
+                            title: user.name,
+                            user: user,
+                            uploads: records,
+                            songs: songs,
+                            role: role,
+                          });
+                        });
+                      }
+                    );
+                  }
                 });
-              }
+              } else console.log(err);
             });
           } else console.log(err);
         });

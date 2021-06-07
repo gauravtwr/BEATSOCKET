@@ -2,5 +2,16 @@
   <h2>{{title}}</h2>
   <h3>
     Playing song
-    {{song.title}}</h3>
+    {{song.title}}
+  </h3>
+  <div class="row justify-content-center d-flex mt-5">
+    <div class="col-4">
+      <img src="/img/play.png" width="200" height="200" alt="play image" />
+    </div>
+    <div class="col-4 my-auto">
+      <audio controls>
+        <source src="/audio/{{song.title}}.mp3" />
+      </audio>
+    </div>
+  </div>
 </div>
