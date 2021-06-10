@@ -1,0 +1,147 @@
+body{
+    overflow: hidden;
+}
+header{
+    position: absolute;
+    left: 0.83%;
+    right: 91.56%;
+    top: 0.74%;
+    bottom: 95.74%;   
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 38px;
+    /* identical to box height */
+    text-align: center;
+    color: #1B2441;
+
+}
+.info-box{
+    position: absolute;
+width: 280px;
+height: 1080px;
+left: 0px;
+top: 45px;
+
+background: #6FFFE8;
+}
+.profile-img{
+position: absolute;
+width: 72px;
+height: 72px;
+left: 16px;
+top: 50px;
+border-radius: 100%;
+}
+.name{
+    position: absolute;
+width: 170px;
+height: 23px;
+left: 96px;
+top: 50px;
+
+font-family: Raleway;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 23px;
+text-align: center;
+color: #000000;
+}
+.phone{
+    position: absolute;
+    width: 117px;
+    height: 30px;
+    left: 120px;
+    top: 70px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 30px;
+/* identical to box height */
+
+text-align: center;
+text-decoration-line: underline;
+color: #000000;
+}
+.link{
+    position: absolute;
+width: 55px;
+height: 24px;
+left: 140px;
+top: 94px;
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height */
+text-align: center;
+text-decoration-line: underline;
+color: #6FFFE8;
+}
+.heading{
+    position: absolute;
+width: 272px;
+left: calc(50% - 272px/2 - 432px);
+top: 10px;
+bottom: 79.81%;
+font-family: Raleway;
+font-style: normal;
+font-weight: bold;
+font-size: 52px;
+line-height: 61px;
+text-align: center;
+color: #F5F5F5;
+}
+.option-1{
+    position: absolute;
+
+left: calc(50% - 272px/2 - 432px);
+top: 180px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 30px;
+line-height: 60px;
+/* identical to box height */
+
+text-decoration-line: underline;
+
+color: #6FFFE8;
+}
+
+.option-1,a{
+    color: #6FFFE8;
+}
+
+.option-2{
+    position: absolute;
+left: 553px;
+top: 180px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 30px;
+line-height: 60px;
+/* identical to box height */
+
+text-decoration-line: underline;
+
+color: #6FFFE8;
+
+}
+.area-box{
+    position: absolute;
+    width: 100vw;
+    height: 100vw;
+    top: 45px;
+    left: 280px;
+    background-color: #1c2541;
+}
+

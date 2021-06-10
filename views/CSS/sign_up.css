@@ -1,0 +1,420 @@
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background: #1c2541;
+  color: white;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  font-family: 'Roboto', sans-serif;
+}
+
+body .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 0 1.5625rem;
+  margin: 1.5rem 0;
+  font-size: 1rem;
+}
+
+body .navbar a {
+  text-decoration: none;
+  color: white;
+}
+
+body .navbar .toggle-btn {
+  content: url("/auth-files/media/images/icons/bars.svg");
+  width: 1.5rem;
+}
+
+body .main {
+  padding: 0 1.5625rem;
+  margin: 1.5rem 0;
+}
+
+body .main .left {
+  display: none;
+}
+
+body .main .right {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .main .right .form-container {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  row-gap: 1.625rem;
+}
+
+body .main .right .form-container h1 {
+  font-size: 1.3rem;
+  font-weight: 500;
+  font-family: "Maven Pro", sans-serif;
+  color: #6fffe9;
+  text-align: center;
+}
+
+body .main .right .form-container .form {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  row-gap: 1.75rem;
+}
+
+body .main .right .form-container .form .name {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  row-gap: 1.75rem;
+}
+
+body .main .right .form-container .form .input-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto;
+      grid-template-rows: auto;
+  row-gap: 0.5rem;
+}
+
+body .main .right .form-container .form .input-container label {
+  font-size: 0.875rem;
+  margin: 0 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+body .main .right .form-container .form .input-container .input {
+  background: #3a506b;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.0625rem;
+  font-size: 1.125rem;
+}
+
+body .main .right .form-container .form .input-container .input:focus-within {
+  border: 2px solid #6fffe9;
+}
+
+body .main .right .form-container .form .input-container .password-container {
+  padding: 0.08rem 1.0625rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body .main .right .form-container .form .input-container .password-container .password-input {
+  width: 100%;
+  background: inherit;
+  color: inherit;
+  border: none;
+  font-size: 1.125rem;
+  padding: 0.622rem 0;
+  padding-right: 1rem;
+}
+
+body .main .right .form-container .form .input-container .password-container .eye-toggle-btn {
+  width: 1.4375rem;
+}
+
+body .main .right .form-container .form .input-container .password-container .eye-toggle-btn:hover {
+  cursor: pointer;
+}
+
+body .main .right .form-container .form .input-container .error {
+  margin-top: 0.4rem;
+  font-size: 0.8125rem;
+  color: #ff6b6b;
+  display: none;
+}
+
+body .main .right .form-container .form .terms-container {
+  font-family: "Maven Pro", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+body .main .right .form-container .form .terms-container .checkboxContainer {
+  display: inline-block;
+  padding-left: 30px;
+  position: relative;
+  cursor: pointer;
+}
+
+body .main .right .form-container .form .terms-container .checkboxContainer input {
+  display: none;
+}
+
+body .main .right .form-container .form .terms-container .checkboxContainer input:checked + .checkmark {
+  background: #6fffe9;
+}
+
+body .main .right .form-container .form .terms-container .checkboxContainer input:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  width: 10px;
+  border-left: 2px solid #1c2541;
+  border-bottom: 2px solid #1c2541;
+  top: 45%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
+          transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+body .main .right .form-container .form .terms-container .checkboxContainer .checkmark {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: #3a506b;
+  position: absolute;
+  top: -2px;
+  left: 0;
+  border-radius: 4px;
+}
+
+body .main .right .form-container .form .terms-container .checkboxContainer a {
+  text-decoration: none;
+  color: #6fffe9;
+}
+
+body .main .right .form-container .form .terms-container .checkboxContainer a:hover {
+  text-decoration: underline;
+}
+
+body .main .right .form-container .form .btn {
+  background: #6fffe9;
+  color: #1c2541;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.0625rem;
+  font-size: 1.125rem;
+  font-family: "Maven Pro", sans-serif;
+  -webkit-transition: ease 0.2s all;
+  transition: ease 0.2s all;
+}
+
+body .main .right .form-container .form .btn:hover {
+  background: #5bc0be;
+  cursor: pointer;
+}
+
+body .main .right .form-container h2 {
+  font-family: "Maven Pro", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+body .main .right .form-container h2 a {
+  text-decoration: none;
+  color: #6fffe9;
+}
+
+body .main .right .form-container h2 a:hover {
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 460px) {
+  body .navbar {
+    width: 80%;
+    padding: 0;
+    margin: 1.5rem auto;
+    font-size: 1.5rem;
+  }
+  body .main {
+    padding: 0;
+    width: 80%;
+    margin: 1.5rem auto;
+    margin-top: 6vh;
+  }
+  body .main .right .form-container {
+    row-gap: 2.5rem;
+  }
+  body .main .right .form-container h1 {
+    font-size: 2rem;
+  }
+  body .main .right .form-container .form {
+    row-gap: 2rem;
+  }
+  body .main .right .form-container .form .name {
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    -webkit-column-gap: 2rem;
+            column-gap: 2rem;
+  }
+  body .main .right .form-container .form .name .input {
+    width: 100%;
+  }
+  body .main .right .form-container .form .input-container .first-name-error {
+    width: 200%;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+    opacity: 0;
+  }
+  body .main .right .form-container .form .input-container .last-name-error {
+    width: 214%;
+    -webkit-transform: translate(-51.5%, 0);
+            transform: translate(-51.5%, 0);
+    opacity: 0;
+  }
+  body .main .right .form-container .form .input-container .display-the-error {
+    display: block;
+  }
+  body .main .right .form-container .form .input-container .show-error {
+    opacity: 1;
+  }
+  body .main .right .form-container .form .input-container label {
+    margin-left: 1.5rem;
+  }
+  body .main .right .form-container .form .input-container .input {
+    padding: 0.9375rem 1.5rem;
+  }
+  body .main .right .form-container .form .input-container .password-container {
+    padding: 0.04rem 1.5rem;
+  }
+  body .main .right .form-container .form .input-container .password-container .password-input {
+    padding: 0.8rem 1rem 0.8rem 0;
+  }
+  body .main .right .form-container .form .input-container .password-container .eye-toggle-btn {
+    width: 1.8rem;
+  }
+  body .main .right .form-container .form .terms-container input {
+    -webkit-transform: scale(1.5);
+            transform: scale(1.5);
+  }
+  body .main .right .form-container .form .btn {
+    padding: 0.9375rem 1.0625rem;
+  }
+}
+
+@media screen and (min-width: 780px) {
+  body .navbar {
+    position: absolute;
+    z-index: 1;
+    color: #000000;
+    font-size: 2rem;
+    padding: 0;
+    margin: 2rem 0;
+    width: 100%;
+  }
+  body .navbar a {
+    color: #1c2541;
+  }
+  body .navbar .logo {
+    width: 90%;
+    margin: auto;
+  }
+  body .main {
+    width: 100%;
+    height: 100vh;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+    padding: 0;
+    margin: 0;
+  }
+  body .main .left {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background: #ffffff;
+    padding: 2.4rem;
+  }
+  body .main .left .illustration {
+    content: url("/auth-files/media/images/nature.svg");
+    width: 100%;
+    max-width: 70vh;
+  }
+  body .main .right {
+    padding: 0;
+    width: 85%;
+    margin: auto;
+  }
+  body .main .right .form-container {
+    margin: 2rem 0;
+    width: auto;
+  }
+  body .main .right .form-container h1 {
+    font-size: 2rem;
+  }
+}
+
+@media screen and (min-width: 1099px) {
+  body .main .left {
+    padding: 3.9375rem;
+  }
+  body .main .left .illustration {
+    margin-top: 3rem;
+  }
+  body .main .right {
+    width: 80%;
+  }
+}
+/*# sourceMappingURL=sign_up.css.map */

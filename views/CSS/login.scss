@@ -1,0 +1,394 @@
+// ############# Variables #############
+// Fonts
+$special-font: 'Maven Pro', sans-serif;
+// Colors
+$text-color: rgb(255, 255, 255);
+$bg-color: rgb(28, 37, 65);
+$input-bg-color: rgb(58, 80, 107);
+$accent-color: rgb(111, 255, 233);
+$dark-accent-color: rgb(91, 192, 190);
+$error-color: rgb(255, 107, 107);
+
+// ############# Variables #############
+
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+}
+
+body {
+    background: $bg-color;
+    color: $text-color;
+    user-select: none;
+    font-family: 'Roboto', sans-serif;
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        padding: 0 1.5625rem;
+        margin: 1.5rem 0;
+        font-size: 1rem;
+
+        a {
+            text-decoration: none;
+            color: $text-color;
+        }
+    }
+
+    .main {
+        padding: 0 1.5625rem;
+        margin: 1.5rem 0;
+
+        .left {
+            display: none;
+        }
+        
+        .right {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .form-container {
+                width: 100%;
+                display: grid;
+                grid-template-rows: auto;
+                row-gap: 1.75rem;
+
+                h1 {
+                    font-size: 1.3rem;
+                    font-weight: 500;
+                    font-family: $special-font;
+                    color: $accent-color;
+                    text-align: center;
+                }
+
+                .form {
+                    display: grid;  
+                    grid-template-rows: auto;
+                    row-gap: 1.75rem;
+
+                    .input-container {
+                        display: grid;
+                        grid-template-rows: auto;
+                        row-gap: 0.5rem;
+
+                        label {
+                            font-size: 0.875rem;
+                            margin: 0 1rem;
+                            width: fit-content;
+                        }
+
+                        .input {
+                            background: $input-bg-color;
+                            color: $text-color;
+                            border: none;
+                            border-radius: 8px;
+                            padding: 0.7rem 1.0625rem;
+                            font-size: 1.125rem;
+
+                            &:focus-within {
+                                border: 2px solid $accent-color;
+                            }
+                        }
+
+                        .password-container {
+                            padding: 0.08rem 1.0625rem;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+
+                            .password-input {
+                                width: 100%;
+                                background: inherit;
+                                color: inherit;
+                                border: none;
+                                font-size: 1.125rem;
+                                padding: 0.622rem 0;
+                                padding-right: 1rem;
+                            }
+
+                            .eye-toggle-btn {
+                                width: 1.4375rem;
+
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                            }
+                        }
+
+                        .error {
+                            margin-top: 0.4rem;
+                            font-size: 0.8125rem;
+                            color: $error-color;
+                            display: none;
+                        }
+                    }
+
+                    .forgot-password {
+                        font-family: $special-font;
+                        font-size: 0.875rem;
+                        font-weight: 500;
+                        text-decoration: none;
+                        color: $accent-color;
+                        width: fit-content;
+                        margin: auto;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+
+                    .btn {
+                        background: $accent-color;
+                        color: $bg-color;
+                        border: none;
+                        border-radius: 8px;
+                        padding: 0.7rem 1.0625rem;
+                        font-size: 1.125rem;
+                        font-family: $special-font;
+                        transition: ease 0.2s all;
+
+                        &:hover {
+                            background: $dark-accent-color;
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                h2 {
+                    font-family: $special-font;
+                    font-size: 0.875rem;
+                    font-weight: 500;
+                    text-align: center;
+
+                    a {
+                        text-decoration: none;
+                        color: $accent-color;
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .divider {
+                    font-size: 1rem;
+                    color: $accent-color;
+                    text-align: center;
+                    display: flex;
+                    justify-content: space-around;
+                    align-items: center;                    
+
+                    .line {
+                        display: inline-block;
+                        height: 2px;
+                        width: 40%;
+                        background: $input-bg-color;
+                        border-radius: 100px;
+                    }
+                }
+
+                .social-btns {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    .btn {
+                        padding: 0.6rem;
+                        margin: 0 1.5rem;
+                        background: $accent-color;
+                        border-radius: 8px;
+                        transition: ease 0.2s all;
+
+                        &:hover {
+                            background: $dark-accent-color;
+                            cursor: pointer;
+                        }
+
+                        .icons {
+                            width: 1.5rem;
+                            height: 1.5rem;
+                        }
+
+                        .google {
+                            content: url("/auth-files/media/images/icons/google.svg");
+                        }
+    
+                        .facebook {
+                            content: url("/auth-files/media/images/icons/facebook-f.svg");
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Tablet: iPad
+@media screen and (min-width: 460px) {
+    body {
+        .navbar {
+        width: 80%;
+        padding: 0;
+        margin: 1.5rem auto;
+        font-size: 1.5rem;
+    }
+        .main {
+            padding: 0;
+            width: 80%;
+            margin: 1.5rem auto;
+            margin-top: 6vh;
+
+            .right {
+                .form-container {
+                    row-gap: 2rem;
+
+                    h1 {
+                        font-size: 2rem;
+                    }
+
+                    .form {
+                        row-gap: 2rem;
+
+                        .input-container {
+
+                            .first-name-error {
+                                display: block;
+                                width: 200%;
+                                transform: translate(0, 0);
+                                opacity: 0;
+                            }
+
+                            .last-name-error {
+                                display: block;
+                                width: 214%;
+                                transform: translate(-51.5%, 0);
+                            }
+
+                            label {
+                                margin-left: 1.5rem;
+                            }
+
+                            .input {
+                                padding: 0.9375rem 1.5rem;
+                            }
+
+                            .password-container {
+                                padding: 0.04rem 1.5rem;
+
+                                .password-input {
+                                    padding: 0.8rem 1rem 0.8rem 0;
+                                }
+
+                                .eye-toggle-btn {
+                                    width: 1.8rem;
+                                }
+                            }
+                        }
+                    }
+
+                    .social-btns {
+                        .btn{
+                            transform: scale(1.0186);
+                        }
+                    }
+                }
+            }
+        }   
+    }
+}
+
+// Laptop : Small
+@media screen and (min-width: 780px) {
+    body {
+        .navbar {
+            position: absolute;
+            z-index: 1;
+            color: #000000;
+            font-size: 2rem;
+            padding: 0;
+            margin: 2rem 0;
+            width: 100%;
+
+            a {
+                color: $bg-color;
+            }
+
+            .logo {
+                width: 90%;
+                margin: auto;
+            }
+        }
+        .main {        
+            width: 100%;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding: 0;
+            margin: 0;
+
+            .left {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background: #ffffff;
+                padding: 2.4rem;
+
+                .illustration {
+                    content: url("/auth-files/media/images/nature&friends.svg");
+                    width: 100%;
+                    max-width: 70vh;
+                }
+            }
+
+            .right{
+                padding: 0;
+                width: 85%;
+                margin: auto;
+
+                .form-container {
+                    margin: 2rem 0;
+
+                    h1 {
+                        font-size: 2rem;
+                    }                    
+
+                    .social-btns {
+                        .btn{
+                            transform: scale(1.0186);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Laptop : Large
+@media screen and (min-width: 1099px) {
+
+    body {
+        .main {
+            .left {
+                padding: 3.9375rem;
+
+                .illustration {
+                    margin-top: 3rem;
+                }
+            }
+
+            .right{
+                width: 80%;
+            }
+        }
+    }    
+}
