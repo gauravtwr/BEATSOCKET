@@ -34,45 +34,22 @@ app.listen(process.env.PORT, () => {
   console.log("Express server started at port: " + process.env.PORT);
 });
 
-// mongoose.connect(
-//   process.env.MONGODB_URI,
-//   {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//     useCreateIndex: true,
-//     useFindAndModify: false,
-//   },
-//   (err) => {
-//     if (!err) {
-//       console.log("Database connected");
-//       // const conn = mongoose.createConnection(process.env.MONGODB_URI);
-//       // let gfs;
-//       // conn.once("open", () => {
-//       //   gfs = Grid(conn.db, mongoose.mongo);
-//       //   gfs.collection("uploads");
-//       //   console.log("Database connected");
-//       // });
-//     } else console.log(err);
-//   }
-// );
+mongoose.connect(
+  process.env.MONGODB_URI,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  },
+  (err) => {
+    if (!err) {
+      console.log("Database connected");
+      
+    } else console.log(err);
+  }
+);
 
-// const storage = new GridFsStorage({
-//   url: process.env.MONGODB_URI,
-//   file: (req, file) => {
-//     return new Promise((resolve, reject) => {
-//       crypto.randomBytes(16, (err, buf) => {
-//         if (err) return reject(err);
-//         const filename = buf.toString("hex") + path.extname(file.originalname);
-//         const fileInfo = {
-//           filename: filename,
-//           bucketName: "uploads",
-//         };
-//         resolve(fileInfo);
-//       });
-//     });
-//   },
-// });
-// const upload = multer({ storage });
 
 app.use("/", homeController);
 app.use("/user", userController);
