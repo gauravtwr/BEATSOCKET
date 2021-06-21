@@ -1,0 +1,135 @@
+body{
+    overflow: hidden;
+}
+header{
+    position: absolute;
+    left: 0.83%;
+    right: 91.56%;
+    top: 2.94%;
+    bottom: 95.74%;   
+    font-family: Raleway;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 38px;
+    /* identical to box height */
+    text-align: center;
+    color: #1B2441;
+
+}
+.info-box{
+    position: absolute;
+width: 280px;
+height: 1080px;
+left: 220px;
+top: 25px;
+
+background: #6FFFE8;
+}
+
+.name{
+    position: absolute;
+width: 170px;
+height: 23px;
+left: 96px;
+top: 50px;
+
+font-family: Raleway;
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 23px;
+text-align: center;
+color: #000000;
+}
+.phone{
+    position: absolute;
+    width: 117px;
+    height: 30px;
+    left: 120px;
+    top: 70px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 30px;
+/* identical to box height */
+
+text-align: center;
+text-decoration-line: underline;
+color: #000000;
+}
+.link{
+    position: absolute;
+width: 55px;
+height: 24px;
+left: 140px;
+top: 94px;
+font-family: Poppins;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 24px;
+/* identical to box height */
+text-align: center;
+text-decoration-line: underline;
+color: #3316E7;
+}
+.heading{
+    position: absolute;
+width: 362px;
+left: calc(50% - 282px/2 - 442px);
+top: 10px;
+bottom: 79.81%;
+font-family: Raleway;
+font-style: normal;
+font-weight: bold;
+font-size: 54px;
+line-height: 61px;
+text-align: left;
+color: #F5F5F5;
+}
+.form-control{
+    position: absolute;
+
+left: calc(50% - 272px/2 - 530px);
+top: 380px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 30px;
+line-height: 60px;
+/* identical to box height */
+
+text-decoration-line: underline;
+
+color: #6FFFE8;
+}
+.input-group-text{
+    position: absolute;
+left: 280px;
+top: 500px;
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 500;
+font-size: 30px;
+line-height: 60px;
+/* identical to box height */
+
+text-decoration-line: underline;
+
+color: #6FFFE8;
+
+}
+.area-box{
+    position: absolute;
+    width: 100vw;
+    height: 100vw;
+    top: 0px;
+    left: 200px;
+    background-color: #1c2541;
+}
+
