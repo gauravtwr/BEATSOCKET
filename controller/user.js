@@ -94,15 +94,20 @@ router.post("/login", (req, res) => {
         Song.find({ _id: { $in: obj.uploads } }, (err, records) => {
           if (!err) {
             Song.find((err, songs) => {
-              var role = 0;
-              if (obj.role == "Artist") role = 1;
-              res.render("dashboard", {
-                viewTitle: obj.name,
-                title: "Dashboard",
-                user: obj,
-                uploads: records,
-                songs: songs,
-                role: role,
+              Song.find({ "likes.1": { $exists: true } }, (err, popular) => {
+                if (!err) {
+                  var role = 0;
+                  if (obj.role == "Artist") role = 1;
+                  res.render("dashboard", {
+                    viewTitle: obj.name,
+                    title: "Dashboard",
+                    user: obj,
+                    uploads: records,
+                    songs: songs,
+                    role: role,
+                    popular,
+                  });
+                } else console.log(err);
               });
             });
           }
