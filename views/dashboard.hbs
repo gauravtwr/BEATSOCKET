@@ -93,134 +93,76 @@
 
       <div class="main">
 
-        <div class="email">
-          <div class="img">{{user.name}}</div>
-          <!-- <p>aniketranjan@gmail.com</p> -->
+        <div class="email bg-danger">
+         <a href="/">
+    <button class="btn">
+      <i class="fa fa-power-off"></i>
+      {{user.name}}, Logout
+    </button>
+  </a>
         </div>
         <h1>Popular</h1>
 
         <div class="card" data-flickity='{ "groupCells": true }'>
 
-          <div class="card-box">
-
-            <img class="model" src="/img/barish.jpg" />
-            <p>Barish ban jaana</p>
-            <p>Payal Dev</p>
-          </div>
-
-          <div class="card-box">
-
-            <img class="model" src="/img/imag2.jpg" />
-            <p>Barish ban jaana</p>
-            <p>Payal Dev</p>
-
-          </div>
-
-          <div class="card-box">
-
-            <img class="model" src="/img/images.jpg" />
-            <p>Barish ban jaana</p>
-            <p>Payal Dev</p>
-          </div>
-
-          <div class="card-box">
-
-            <img class="model" src="/img/img10.jpg" />
-            <p>Barish ban jaana</p>
-            <p>Payal Dev</p>
-          </div>
-
-          <div class="card-box">
-
-            <img class="model" src="/img/img4.jpg" />
-            <p>Barish ban jaana</p>
-            <p>Payal Dev</p>
-          </div>
-
-          <div class="card-box">
-
-            <img class="model" src="/img/imag2.jpg" />
-            <p>Barish ban jaana</p>
-            <p>Payal Dev</p>
-          </div>
-          <div class="card-box">
-
-            <img class="model" src="/img/parmanu1.jpg" />
-            <p>Barish ban jaana</p>
-            <p>Payal Dev</p>
-          </div>
-          <div class="card-box">
-
-            <img class="model" src="/img/parmanu2.jpg" />
-            <p>Barish ban jaana</p>
-            <p>Payal Dev</p>
-          </div>
-          <div class="card-box">
-
-            <img class="model" src="/img/barish.jpg" />
-            <p>Barish ban jaana</p>
-            <p>Payal Dev</p>
-          </div>
-          <div class="card-box">
-
-            <img class="model" src="/img/barish.jpg" />
-            <p>Barish ban jaana</p>
-            <p>Payal Dev</p>
-          </div>
+          {{#each popular}}
+            <div class="card-box">
+              <img class="model" src="/img/barish.jpg" />
+              <p>{{this.title}}</p>
+              <p>{{this.likes}}</p>
+            </div>
+          {{/each}}
 
         </div>
         <div class="recar">
 
-          <div class="recent">
+          <div class="recent " style="color: whitesmoke;">
             <h1>Recent</h1>
-            <div class="recent-div">
+            {{#each songs}}
+              <div class="recent-div w-100">
 
-              <div><ol><li><img src="/img/imag2.jpg" /></li></ol></div>
+                <div><ol><li><img src="/img/imag2.jpg" /></li></ol></div>
 
-              <div><pre>Boyfriend (with social house)
-                  <span>Ariana grande</span>
-                  <i class="fa fa-heart-o" aria-hidden="true"></i></pre></div>
+                <div><pre>{{this.title}}
+                  {{this.views}}
+                  <a href="/song/play/{{../user.id}}/{{this.id}}"><i class="fa fa-play-circle fa-2x"></i></a> 
+                    <a href="/song/like/{{../user.id}}/{{this.id}}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                    {{#if ../playlist}}
+                <td><a href="/user/playlist/{{../user.id}}/{{this.id}}"><i class="fa fa-plus fa-2x"></i> playlist</a> </td>
+                {{else}}
+                <td><a style="color: red;" href="/user/playlist/{{../user.id}}/{{this.id}}"><i class="fa fa-times fa-2x"></i> playlist</a> </td>
+                {{/if}}
+                    </pre></div>
 
-            </div>
-            <div class="recent-div">
-
-              <div><ol><li><img src="/img/imag2.jpg" /></li></ol></div>
-
-              <div><pre>Boyfriend (with social house)
-                  <span>Ariana grande</span>
-                  <i class="fa fa-heart-o" aria-hidden="true"></i></pre></div>
-
-            </div>
-            <div class="recent-div">
-
-              <div><ol><li><img src="/img/imag2.jpg" /></li></ol></div>
-
-              <div><pre>Boyfriend (with social house)
-                  <span>Ariana grande</span>
-                  <i class="fa fa-heart-o" aria-hidden="true"></i></pre></div>
-
-            </div>
-            <div class="recent-div">
-
-              <div><ol><li><img src="/img/imag2.jpg" /></li></ol></div>
-
-              <div><pre>Boyfriend (with social house)
-                  <span>Ariana grande</span>
-                  <i class="fa fa-heart-o" aria-hidden="true"></i></pre></div>
-
-            </div>
-            <div class="recent-div">
-
-              <div><ol><li><img src="/img/imag2.jpg" /></li></ol></div>
-
-              <div><pre>Boyfriend (with social house)
-                  <span>Ariana grande</span>
-                  <i class="fa fa-heart-o" aria-hidden="true"></i></pre></div>
-
-            </div>
+              </div>
+            {{/each}}
 
           </div>
-          <div class="artist">
+          {{#if role}}
+          <a href="/song/upload/{{user.id}}">
+        <button class="btn btn-primary">
+          <i class="fa fa-music"></i>
+          Song upload
+        </button>
+      </a>
+          <div class="recent " style="color: whitesmoke;">
+            <h1>Your uploads</h1>
+            {{#each uploads}}
+              <div class="recent-div w-100">
+
+                <div><ol><li><img src="/img/imag2.jpg" /></li></ol></div>
+
+                <div><pre>{{this.title}}
+                  {{this.views}}
+                  <a href="/song/delete/{{../user.id}}/{{this.id}}"><i class="fa fa-trash fa-2x"></i></a> 
+                    </pre></div>
+
+              </div>
+            {{/each}}
+
+          </div>
+          {{/if}}
+          {{! <div class="artist">
             <h1>Artist</h1>
             <div class="artist-div">
               <div class="detail-one"><div class="cartoon"></div>
@@ -243,7 +185,7 @@
                   <br /><span>23,656 listners</span></p></div>
             </div>
 
-          </div>
+          </div> }}
 
         </div>
       </div>
