@@ -12,6 +12,7 @@
     <style>
       *{ box-sizing: border-box; } html,body{ margin: 0; height: 100%;
       background-color: #303234; } .container{ display: flex ; height: 100%; }
+      
       .sidebar{ width: 15%; height: 100%; background-color: black; } .head1{
       color: #bc1bce; font-family: sans-serif; text-align: center; font-size:
       small; padding-top: 1rem; } .main{ width: 85%; height: 100%; }
@@ -93,9 +94,14 @@
 
       <div class="main">
 
-        <div class="email">
-          <div class="img">{{user.name}}</div>
-          <!-- <p>aniketranjan@gmail.com</p> -->
+        <div class="email bg-danger">
+          {{!-- <div class="img">{{user.name}}</div> --}}
+          <a href="/">
+          <button class="btn ">
+            <i class="fa fa-power-off"></i>
+            Logout
+          </button>
+        </a>
         </div>
         <h1>Popular</h1>
 
@@ -171,7 +177,7 @@
         </div>
         <div class="recar">
 
-          <div class="recent">
+          <div class="recent " style="color:whitesmoke;">
             <h1>Recent</h1>
             <div class="recent-div">
 
