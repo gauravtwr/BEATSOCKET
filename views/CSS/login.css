@@ -6,10 +6,10 @@
           box-sizing: border-box;
 }
 
-.h1{
+.bg-image{
   height: 100%;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(login.jpg);
+  background-image: ../public/img/login.jpg;
   background-position: center;
   background-size: cover;
   position: absolute;
@@ -88,16 +88,17 @@
 
 .input-field{
 
-  height: 40px;
+  height: 30px;
   width: 300px;
   left: 0px;
   top: 0px;
   border-radius: 8px;
-  color: #303234;
+  background-color: #3b3e41;
 
   border: 1px solid #AF01FF;
   box-sizing: border-box;
   border-radius: 8px;
+
 
 
   /* width: 100%;
@@ -112,46 +113,69 @@
 }
 
 .check-box{
- /* Forgot Password? */
+          /* Forgot Password? */
+  height: 25px;
+  width: 178px;
+  left: 0px;
+  top: 0px;
+  border-radius: nullpx;
+  text-decoration: none;
+  color: #b2babe ;
+
 
   position: absolute;
-  left: 0%;
+  left: 24%;
   right:0%;
-  top: 100%;
+  top: 98%;
   bottom: 0%;
+}
 
-  font-family: Source Sans Pro;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 20px;
-  line-height: 25px;
-  text-align: center;
+.a{
+  /* Not a member? Sign Up. */
 
-  color: #FFFFFF;
 
-  opacity: 0.6;
-  /* outer 1 */
+position: absolute;
+left: -60%;
+right: 0%;
+top: 200%;
+bottom: 0%;
 
-  text-shadow: 9px 9px 16px rgba(0, 0, 0, 0.4), -9px -9px 16px rgba(73, 73, 73, 0.4);
+font-family: Source Sans Pro;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 25px;
+text-align: center;
+text-decoration: none;
+
+color: #FFFFFF;
+
+opacity: 0.6;
+/* outer 1 */
+
+text-shadow: 9px 9px 16px rgba(0, 0, 0, 0.4), -9px -9px 16px rgba(73, 73, 73, 0.4);
+
 
 }
 
 .login-btn{
 
-  height: 72px;
-  width: 267px;
+  height: 52px;
+  width: 217px;
   left: 0px;
   top: 0px;
   border-radius: 60px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
 
 
  /* Rectangle 2 */
 
 
   position: absolute;
-  left: 3.8%;
+  left: 5.8%;
   right: 0%;
-  top: 120%;
+  top: 140%;
   bottom: 0%;
 
 /* gradient */
@@ -161,4 +185,28 @@
 
   box-shadow: 9px 9px 16px rgba(0, 0, 0, 0.4), -9px -9px 16px rgba(73, 73, 73, 0.4);
   border-radius: 60px;
+}
+
+.bt{
+  /* BEATSOCKET */
+
+
+  position: absolute;
+  left: 2.08%;
+  right: 83.8%;
+  top: 4.06%;
+  bottom: 90.96%;
+  background: -webkit-linear-gradient(#DF40F1 0%, #AF01FF 118.47%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* color:#AF01FF ; */
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 31px;
+  line-height: 49px;
+  text-align: center;
+
+/* inner 1 */
 }
