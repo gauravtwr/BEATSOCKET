@@ -1,0 +1,9 @@
+<div class="bg-dark text-light text-center w-100 h-100">
+  {{#if title}}
+    {{title}}
+  {{/if}}
+
+  {{#each songs}}
+    <li>{{this.title}}</li>
+  {{/each}}
+</div>

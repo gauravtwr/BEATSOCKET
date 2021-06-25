@@ -170,4 +170,18 @@ router.get("/playlist/:uid/:sid", (req, res) => {
   );
 });
 
+router.get("/playlist/:uid", (req, res) => {
+  User.findById(req.params.uid, (err, user) => {
+    Song.find({ _id: { $in: user.playlist } }, (err, songs) => {
+      var title = 0;
+      if (songs.length == 0) title = "No songs in your playlist";
+      res.render("playlist", {
+        viewTitle: "Playlist",
+        songs,
+        title,
+      });
+    });
+  });
+});
+
 module.exports = router;
