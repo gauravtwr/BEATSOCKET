@@ -1,25 +1,56 @@
-<div class="container text-center">
-  <h1>Login</h1>
-  <form action="/user/login" method="POST" id="sign-in-form">
-    <div style="color: red; font-weight:bold;">
-      {{title}}
+<link rel="stylesheet" href="/css/login.css" />
+<div class="navbar">
+  <div class="logo">
+    <a href="/">
+      <img src="/img/Group 430.png" height="100" width="100" />
+    </a>
+  </div>
+</div>
+
+<div class="main">
+  <section class="left">
+    <div class="illustration"></div>
+  </section>
+  <section class="right">
+    <div class="form-container">
+      <h1>Welcome back!!</h1>
+      <!-- Form -->
+      <form class="form" action="/user/login" method="POST" id="sign-in-form">
+        <div style="color: red; font-weight:bold;">
+          {{title}}
+        </div>
+        <div class="input-container">
+          <label>UserId</label>
+          <input
+            class="input"
+            type="text"
+            name="userid"
+            placeholder="User Id"
+            value="{{user.userid}}"
+          />
+          <div class="form-group text-danger">
+            {{uid}}
+          </div>
+        </div>
+
+        <div class="input-container">
+          <label for="password">Password</label>
+          <input
+            class="input"
+            type="password"
+            name="password"
+            placeholder="Password"
+          />
+          <div class="form-group text-danger">
+            {{ups}}
+          </div>
+        </div>
+
+        <button class="btn" id="btnlogin">Login</button>
+      </form>
+
+      <h2>Don't have an account? <a href="/user/signUp">Sign Up</a></h2>
+
     </div>
-    <div>
-      <input
-        type="text"
-        name="userid"
-        placeholder="User Id"
-        value="{{user.userid}}"
-      />
-      <div class="form-group">
-        {{uid}}
-      </div>
-      <input type="password" name="password" placeholder="Password" />
-      <div class="form-group">
-        {{ups}}
-      </div>
-    </div>
-    <p class="forgot-password">Forgot your password?</p>
-    <button type="submit" class="btn btn-primary">Sign In</button>
-  </form>
+  </section>
 </div>
