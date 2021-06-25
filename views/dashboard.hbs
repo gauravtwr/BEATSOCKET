@@ -1,150 +1,80 @@
-<html>
-  <head>
-    <title>Event Delegation</title>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
-    />
-    <style>
-      *{ box-sizing: border-box; } html,body{ margin: 0; height: 100%;
-      background-color: #303234; } .container{ display: flex ; height: 100%; }
-      
-      .sidebar{ width: 15%; height: 100%; background-color: black; } .head1{
-      color: #bc1bce; font-family: sans-serif; text-align: center; font-size:
-      small; padding-top: 1rem; } .main{ width: 85%; height: 100%; }
-      .list-group{ text-align: center; padding-top: 1rem; padding-right: 2rem; }
-      .list-group-item{ text-decoration: none; font-size: small;
-      color:whitesmoke; opacity: 0.5; } .song-list h1, .play-list h1{ color:
-      #bc1bce; font-family: sans-serif; text-align: center; font-size: small;
-      padding-top: 1rem; padding-right: 2.5rem; padding-bottom: 0.5rem; }
-      .song-list a{ font-size: 0.9rem; text-decoration: none; padding-left:
-      3.7rem; color:whitesmoke; opacity: 0.5; } .play-list a{ font-size: 0.9rem;
-      text-decoration: none; padding-left: 3.2rem; color:whitesmoke; opacity:
-      0.5; } .sidebar a:hover{ opacity: 1; } .main{ padding-top: 1rem; } .email{
-      height: 2rem; width: 11rem; border-radius: 2rem; display: flex;
-      float:right; box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.75); } .email p{
-      padding-bottom: ; } .img{ border: 1px solid greenyellow; width: 2rem;
-      height: 100%; border-radius: 5rem; background-color: greenyellow; } .main
-      h1{ padding-left: 2rem; font-family: sans-serif; font-size: 1.8rem;
-      padding-top: 1rem; color: whitesmoke; } .card{ height: 13rem; margin:
-      auto; display:flex; justify-content: center; flex-direction: column;
-      position: relative; } .card-box{ border-radius: 10px; width: 14%;
-      box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.75); line-height: 1px;
-      padding-left: 0.8rem; margin-right: 1rem; padding-top: 1rem; display:
-      flex; justify-content: center; text-align: center; flex-direction: column;
-      background-color: black; counter-increment: card-box; box-sizing:
-      border-box; } .card-box :before{ display: block; } .card-box img{ height:
-      8.5rem; width: 8.5rem; border-radius: 1rem; } .card-box p{ font-family:
-      sans-serif; font-size: small; text-align: center; padding-right: 0.7rem;
-      color: whitesmoke; opacity: 0.4; } .recar{ height: 20rem; display: flex; }
-      .recent{ width: 50%; } .recent-div{ display: flex; justify-content:
-      space-around; height: 2.5rem; } pre{ padding-top: 0.5rem; } .recent-div li
-      img{ height: 2rem; } .artist{ width: 50%; } .artist-div{ height: 4rem;
-      display: flex; margin-bottom: 1rem; } .detail-one, .detail-two{ width:
-      42%; margin-left: 2rem; border-radius: 8px; display: flex; box-shadow: 0px
-      0px 9px 0px rgba(0,0,0,0.75); } .detail-one p, .detail-two p{ margin-left:
-      1rem; color: whitesmoke; opacity: 0.7; font-family: sans-serif; font-size:
-      ; } .detail-one span, .detail-two span{ font-size: small; opacity: 0.5; }
-      .cartoon{ border: 1px solid blue; width: 20%; height: 85%; border-radius:
-      50%; margin-left: 0.5rem; margin-top: 5px; } .fa-fa-heart-o{
-      background-color: red; }
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"/>
+<link rel="stylesheet" href="/css/dashboard.css" />
 
-    </style>
-  </head>
-  <body>
-    <div class="container">
+<div class="container">
+  <div class="sidebar">
+      <h1 class="head1">BEATSOCKET</h1>
 
-      <div class="sidebar">
-
-        <h1 class="head1">BEATSOCKET</h1>
-
-        <div class="list-group">
-          <a class="list-group-item" href=""><i
-              class="fa fa-home"
-              aria-hidden="true"
-            ></i>&nbsp; Home</a><br /><br />
-          <a class="list-group-item" href=""><i
-              class="fa fa-search"
-              aria-hidden="true"
-            ></i>&nbsp; Search</a>
-
-        </div>
-
-        <div class="song-list">
-          <h1>GENRE</h1>
-          <a class="song-list-first" href="">Rock</a><br /><br />
-          <a class="song-list-second" href="">Jazz</a><br /><br />
-          <a class="song-list-third" href="">Pop</a><br /><br />
-          <a class="song-list-fourth" href="">Hip Hop</a><br /><br />
-          <a class="song-list-fiveth" href="">Classic</a>
-        </div>
-
-        <div class="play-list">
-          <h1>PLAYLISTS</h1>
-          <a class="play-list-item" href="/user/playlist/{{user.id}}">Your Top songs</a><br />
-
-        </div>
-
+      <div class="list-group">
+        <a class="list-group-item" href=""><i
+            class="fa fa-home"
+            aria-hidden="true"
+          ></i>&nbsp; Home</a>
       </div>
 
-      <div class="main">
+      <div class="song-list">
+        <h1>GENRE</h1>
+        <a class="song-list-first" href="">Rock</a><br /><br />
+        <a class="song-list-second" href="">Jazz</a><br /><br />
+        <a class="song-list-third" href="">Pop</a><br /><br />
+        <a class="song-list-fourth" href="">Hip Hop</a><br /><br />
+        <a class="song-list-fiveth" href="">Classic</a>
+      </div>
 
-        <div class="email bg-danger">
-         <a href="/">
-    <button class="btn">
-      <i class="fa fa-power-off"></i>
-      {{user.name}}, Logout
-    </button>
-  </a>
-        </div>
-        <h1>Popular</h1>
+      <div class="play-list">
+        <h1>PLAYLISTS</h1>
+        <a class="play-list-item" href="/user/playlist/{{user.id}}">Your Top songs</a><br />
+      </div>
+  </div>
 
-        <div class="card" data-flickity='{ "groupCells": true }'>
+  <div class="main">
+    <div class="email bg-danger">
+        <a href="/">
+          <button class="btn"><i class="fa fa-power-off"></i>{{user.name}}, Logout</button>
+        </a>
+    </div>
+        
+        
+    <h1>Popular</h1>
+      <div class="card" data-flickity='{ "groupCells": true }'>
 
-          {{#each popular}}
-            <div class="card-box">
-              <img class="model" src="/img/play.png" height="50" width="50" />
-              <p>{{this.title}}</p>
-              <p>{{this.likes.length}}</p>
+        {{#each popular}}
+          <div class="card-box">
+            <img class="model" src="/img/play.png" height="50" width="50" />
+            <p>{{this.title}}</p>
+            <p>{{this.likes.length}}</p>
+          </div>
+        {{/each}}
+
+      </div>
+      <div class="recar">
+        <div class="recent " style="color: whitesmoke;">
+          <h1>Recent</h1>
+          {{#each songs}}
+            <div class="recent-div w-100">
+
+              <div><ol><li><img src="/img/imag2.jpg" /></li></ol></div>
+
+              <div><pre>{{this.title}}
+                {{this.views}}
+                <a href="/song/play/{{../user.id}}/{{this.id}}"><i class="fa fa-play-circle fa-2x"></i></a> 
+                  <a href="/song/like/{{../user.id}}/{{this.id}}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                  {{#if ../playlist}}
+              <td><a href="/user/playlist/{{../user.id}}/{{this.id}}"><i class="fa fa-plus fa-2x"></i> playlist</a> </td>
+              {{else}}
+              <td><a style="color: red;" href="/user/playlist/{{../user.id}}/{{this.id}}"><i class="fa fa-times fa-2x"></i> playlist</a> </td>
+              {{/if}}
+                  </pre></div>
+
             </div>
           {{/each}}
-
         </div>
-        <div class="recar">
-
-          <div class="recent " style="color: whitesmoke;">
-            <h1>Recent</h1>
-            {{#each songs}}
-              <div class="recent-div w-100">
-
-                <div><ol><li><img src="/img/imag2.jpg" /></li></ol></div>
-
-                <div><pre>{{this.title}}
-                  {{this.views}}
-                  <a href="/song/play/{{../user.id}}/{{this.id}}"><i class="fa fa-play-circle fa-2x"></i></a> 
-                    <a href="/song/like/{{../user.id}}/{{this.id}}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                    {{#if ../playlist}}
-                <td><a href="/user/playlist/{{../user.id}}/{{this.id}}"><i class="fa fa-plus fa-2x"></i> playlist</a> </td>
-                {{else}}
-                <td><a style="color: red;" href="/user/playlist/{{../user.id}}/{{this.id}}"><i class="fa fa-times fa-2x"></i> playlist</a> </td>
-                {{/if}}
-                    </pre></div>
-
-              </div>
-            {{/each}}
-
-          </div>
-          {{#if role}}
+          
+        {{#if role}}
           <a href="/song/upload/{{user.id}}">
-        <button class="btn btn-primary">
-          <i class="fa fa-music"></i>
-          Song upload
-        </button>
-      </a>
+            <button class="btn btn-primary"><i class="fa fa-music"></i>Song upload</button>
+          </a>
           <div class="recent " style="color: whitesmoke;">
             <h1>Your uploads</h1>
             {{#each uploads}}
@@ -152,51 +82,25 @@
 
                 <div><ol><li><img src="/img/imag2.jpg" /></li></ol></div>
 
-                <div><pre>{{this.title}}
-                  {{this.views}}
-                  <a href="/song/delete/{{../user.id}}/{{this.id}}"><i class="fa fa-trash fa-2x"></i></a> 
-                    </pre></div>
-
+                <div>
+                  <pre>
+                    {{this.title}}
+                    {{this.views}}
+                    <a href="/song/delete/{{../user.id}}/{{this.id}}"><i class="fa fa-trash fa-2x"></i></a> 
+                  </pre>
+                </div>
               </div>
             {{/each}}
-
           </div>
-          {{/if}}
-          {{! <div class="artist">
-            <h1>Artist</h1>
-            <div class="artist-div">
-              <div class="detail-one"><div class="cartoon"></div>
-                <p>Arjit singh <br /><span>23,656 listners</span></p></div>
-              <div class="detail-two"><div class="cartoon"></div><p>jubin
-                  nautiyal
-                  <br /><span>23,656 listners</span></p></div>
-            </div>
-            <div class="artist-div">
-              <div class="detail-one"><div class="cartoon"></div><p>neha kakkar
-                  <br /><span>23,656 listners</span></p></div>
-              <div class="detail-two"><div class="cartoon"></div><p>David Bowie
-                  <br /><span>23,656 listners</span></p></div>
-            </div>
-            <div class="artist-div">
-              <div class="detail-one"><div class="cartoon"></div><p>Michael
-                  Jackson
-                  <br /><span>23,656 listners</span></p></div>
-              <div class="detail-two"><div class="cartoon"></div><p>Sonu Nigam
-                  <br /><span>23,656 listners</span></p></div>
-            </div>
-
-          </div> }}
-
-        </div>
+        {{/if}}
       </div>
 
     </div>
+</div>
+
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"
     ></script>
     <script
       src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"
     ></script>
-
-  </body>
-</html>
