@@ -1,4 +1,7 @@
-<div class="container text-center">
+<div
+  class="container text-center w-100 h-100"
+  style="background-color: rgba(0, 0, 0, 0.9); color:white;"
+>
   <h2>{{title}}</h2>
   <h5>
     Playing :
@@ -24,13 +27,9 @@
 </div>
 
 <script>
-  function calc(){ 
-    var player = document.getElementById('player'); 
-    var length = player.played.length; 
-    var start = player.played.start(0); 
-    var end = player.played.end(length-1); 
-    var t =end-start; 
-    var hr = '/song/calcView/{{user.id}}/{{song.id}}/';
-    document.getElementById("myDiv").innerHTML = "<a id=myDiv href="+hr+t+">Go back</a>"; 
-  }
+  function calc(){ var player = document.getElementById('player'); var length =
+  player.played.length; var start = player.played.start(0); var end =
+  player.played.end(length-1); var t =end-start; var hr = '/song/calcView/{{user.id}}/{{song.id}}/';
+  document.getElementById("myDiv").innerHTML = "<a id=myDiv href="+hr+t+">Go
+  back</a>"; }
 </script>

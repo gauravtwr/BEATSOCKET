@@ -48,54 +48,57 @@
         {{/each}}
 
       </div>
-      <div class="recar">
-        <div class="recent " style="color: whitesmoke;">
-          <h1>Recent</h1>
+      {{!-- <div class="recar"> --}}
+        <div style="color: rgba(255, 255, 255, 0.8); padding: 20px;">
+          <h1 style="color: whitesmoke;">Recent</h1>
           {{#each songs}}
-            <div class="recent-div w-100">
 
-              <div><ol><li><img src="/img/imag2.jpg" /></li></ol></div>
-
-              <div><pre>{{this.title}}
-                {{this.views}}
-                <a href="/song/play/{{../user.id}}/{{this.id}}"><i class="fa fa-play-circle fa-2x"></i></a> 
-                  <a href="/song/like/{{../user.id}}/{{this.id}}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+              <div class="row w-100">
+                  <div class="col" >
+                      {{this.title}}
+                  </div>
+                  
+                  <div class="col" >{{this.views}}</div>
+                  <div class="col" >
+                    <a href="/song/play/{{../user.id}}/{{this.id}}"><i class="fa fa-play-circle fa-2x"></i></a>
+                  </div> 
+                  <div class="col" >
+                    <a href="/song/like/{{../user.id}}/{{this.id}}"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                  </div>
                   {{#if ../playlist}}
-              <td><a href="/user/playlist/{{../user.id}}/{{this.id}}"><i class="fa fa-plus fa-2x"></i> playlist</a> </td>
-              {{else}}
-              <td><a style="color: red;" href="/user/playlist/{{../user.id}}/{{this.id}}"><i class="fa fa-times fa-2x"></i> playlist</a> </td>
-              {{/if}}
-                  </pre></div>
+                    <div class="col" >
+                      <a href="/user/playlist/{{../user.id}}/{{this.id}}"><i class="fa fa-plus fa-2x"></i> playlist</a>
+                    </div>
+                  {{else}}
+                    <div class="col" >
+                      <a style="color: red;" href="/user/playlist/{{../user.id}}/{{this.id}}"><i class="fa fa-times fa-2x"></i> playlist</a> 
+                    </div>
+                  {{/if}}
+              </div>
 
-            </div>
           {{/each}}
         </div>
           
         {{#if role}}
-          <a href="/song/upload/{{user.id}}">
-            <button class="btn btn-primary"><i class="fa fa-music"></i>Song upload</button>
-          </a>
-          <div class="recent " style="color: whitesmoke;">
-            <h1>Your uploads</h1>
+          <div class="text-center">
+            <a href="/song/upload/{{user.id}}">
+              <button class="btn btn-primary"><i class="fa fa-music"></i>Song upload</button>
+            </a>
+          </div>
+          <div class="recent " style="color: rgba(255, 255, 255, 0.8);">
+            <h1 style="color: whitesmoke;">Your uploads</h1>
             {{#each uploads}}
-              <div class="recent-div w-100">
-
-                <div><ol><li><img src="/img/imag2.jpg" /></li></ol></div>
-
-                <div>
-                  <pre>
-                    {{this.title}}
-                    {{this.views}}
-                    <a href="/song/delete/{{../user.id}}/{{this.id}}"><i class="fa fa-trash fa-2x"></i></a> 
-                  </pre>
-                </div>
+              <div class="row w-100" style="padding: 20px;">
+                    <div class="col">{{this.title}}</div>
+                    <div class="col">{{this.views}}</div>
+                    <div class="col"><a href="/song/delete/{{../user.id}}/{{this.id}}"><i class="fa fa-trash fa-2x"></i></a></div> 
               </div>
             {{/each}}
           </div>
         {{/if}}
       </div>
 
-    </div>
+    {{!-- </div> --}}
 </div>
 
     <script
